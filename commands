@@ -1,0 +1,2 @@
+ansible-playbook update.yml --extra-vars "ansible_sudo_pass=password"
+ansible all -a "/bin/echo hello"
