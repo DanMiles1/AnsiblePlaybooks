@@ -1,0 +1,10 @@
+---
+- hosts: pies
+  user: pi
+  become: yes
+  become_user: root
+  become_method: sudo
+  tasks:
+   - name: upgrading packages
+     apt:
+      upgrade: safe
