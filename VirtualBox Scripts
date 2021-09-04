@@ -18,34 +18,5 @@ Power off VM
 "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" controlvm "Ubuntu" poweroff
 
 Snapshots
+See batch file for creating snapshots with current date and time
 
-VBoxManage snapshot <uuid|vmname>
-
-@echo off
-for /f "tokens=1-4 delims=/ " %%i in ("%date%") do (
-     set dow=%%i
-     set month=%%j
-     set day=%%k
-     set year=%%l
-)
-set datestr=%month%_%day%_%year%
-echo datestr is %datestr%
-VBoxManage snapshot "Windows 10"  take <snapshot-name> [--description=description] [--live] [--uniquename Number,Timestamp,Space,Force]
-
-
-VBoxManage snapshot <uuid|vmname> delete <snapshot-name>
-
-
-VBoxManage snapshot <uuid|vmname> restore <snapshot-name>
-
-
-VBoxManage snapshot <uuid|vmname> restorecurrent
-
-
-VBoxManage snapshot <uuid|vmname> edit < snapshot-name | --current > [--description=description] [--name=new-name]
-
-
-VBoxManage snapshot <uuid|vmname> list [[--details] | [--machinereadable]]
-
-
-VBoxManage snapshot <uuid|vmname> showvminfo <snapshot-name>
